@@ -1,70 +1,75 @@
-Interconnect – Operador de telecomunicaciones
+📡 Interconnect – Predicción de Cancelación de Clientes (Churn)
 📌 Descripción
 
-Interconnect es un operador de telecomunicaciones que ofrece servicios de telefonía fija e Internet (por DSL o fibra óptica), junto con servicios adicionales como seguridad en línea, soporte técnico, almacenamiento en la nube y streaming de TV y películas.
+Este proyecto utiliza técnicas de machine learning para ayudar a la empresa de telecomunicaciones Interconnect a predecir qué clientes podrían cancelar su servicio.
+Anticipar el churn permite que la empresa ofrezca promociones personalizadas, mejore su atención y reduzca la pérdida de usuarios valiosos.
 
-Con el fin de mejorar la retención de clientes, surge la necesidad de predecir qué usuarios tienen mayor probabilidad de cancelar su contrato. Esto permite ofrecer promociones personalizadas y planes especiales antes de que abandonen la compañía.
+Interconnect ofrece servicios de:
+
+Telefonía fija (incluyendo líneas múltiples)
+
+Internet (DSL o fibra óptica)
+
+Seguridad en línea (antivirus, bloqueador de sitios)
+
+Soporte técnico
+
+Backup en la nube
+
+Streaming de TV y películas
+
+El objetivo del proyecto es analizar estos datos y construir un modelo capaz de identificar clientes en riesgo de cancelar.
 
 🎯 Objetivos del Proyecto
 
-Construir un modelo capaz de predecir la tasa de cancelación (churn) de los clientes de Interconnect.
+Predecir la probabilidad de cancelación de cada cliente mediante modelos supervisados.
 
-Identificar las características que más influyen en la cancelación.
+Comparar el desempeño entre múltiples algoritmos y técnicas de balanceo.
 
-Apoyar al equipo de marketing para tomar acciones preventivas mediante ofertas, mejoras de servicio o contacto oportuno.
+Determinar los factores más influyentes en la cancelación del servicio.
 
-Evaluar diferentes modelos y determinar cuál proporciona el mejor balance entre precisión y capacidad de identificar clientes en riesgo.
+Proveer a Interconnect una herramienta que permita aplicar estrategias de retención basadas en datos.
 
 📊 Descripción de los Datos
 
-El proyecto utiliza información proveniente de varias fuentes, cada una relacionada con aspectos distintos del servicio:
+El proyecto utiliza cuatro archivos principales:
 
-contract.csv — información del contrato.
+contract.csv — detalles del contrato (duración, método de pago, cargos, tipo de contrato).
 
-personal.csv — datos personales de cada cliente.
+personal.csv — información personal del cliente.
 
-internet.csv — información sobre servicios de Internet.
+internet.csv — servicios relacionados con Internet (tipo de conexión, seguridad, backup, streaming).
 
-phone.csv — detalles sobre servicios telefónicos.
+phone.csv — información sobre servicios telefónicos.
 
-Todos los archivos incluyen la columna customerID, que identifica de manera única a cada cliente.
-
-El dataset contiene información relevante para clasificación, junto con variables personales que han sido previamente ofuscadas para proteger la privacidad.
-Los datos del contrato son válidos a partir del 1 de febrero de 2020.
+Todos incluyen la columna customerID, usada para unificarlos.
+La información del contrato está vigente desde el 1 de febrero de 2020.
 
 ⚙️ Tecnologías Utilizadas
 
 Python 3
 
-Librerías de análisis y visualización:
-
 pandas, numpy
 
 seaborn, matplotlib
 
-Librerías de machine learning:
-
-scikit-learn (Gradient Boosting, métricas de evaluación, preprocesamiento, balanceo)
+scikit-learn (Gradient Boosting, métricas, validación, preprocesamiento, balanceo)
 
 🧪 Metodología
 
-Exploración y limpieza de datos, integrando las diferentes tablas mediante customerID.
+Exploración de datos (EDA) para comprender patrones y distribución de variables.
 
-Análisis exploratorio (EDA) para identificar patrones, correlaciones y distribución de variables relevantes.
+Integración de los cuatro datasets mediante customerID.
 
 Preprocesamiento:
 
 Codificación de variables categóricas.
 
-Estandarización de valores numéricos.
+Escalado de datos cuando fue necesario.
 
-Tratamiento de datos faltantes.
+Balanceo del dataset para mejorar la detección de churn.
 
-Balanceo del dataset para mejorar la detección de clientes que cancelan.
-
-Entrenamiento de múltiples modelos para comparar desempeño:
-
-Modelos lineales
+Pruebas con diversos modelos, enfocándonos en:
 
 Árboles de decisión
 
@@ -72,33 +77,29 @@ Random Forest
 
 Gradient Boosting
 
-Selección del mejor modelo basándose en métricas como:
+Selección del mejor modelo según métricas como Accuracy, Recall y F1-Score.
 
-Accuracy
-
-Recall (especialmente para clase “cancelación”)
-
-F1-score
-
-Interpretación de características importantes para comprender los factores que influyen en la cancelación.
+Análisis de importancia de características para entender qué factores influyen en la cancelación.
 
 📈 Resultados
 
-El modelo con mejor desempeño fue Gradient Boosting utilizando datos balanceados, logrando el mejor equilibrio entre precisión y capacidad de identificar clientes que cancelan.
+El modelo Gradient Boosting con datos balanceados presentó el mejor desempeño global.
 
-Principales hallazgos:
+Variables más influyentes en la cancelación:
 
-El tiempo como cliente es uno de los factores más influyentes: quienes llevan menos tiempo tienden a cancelar con mayor frecuencia.
+Tiempo como cliente (tenure)
 
-El método de pago tiene un impacto notable en la probabilidad de churn.
+Método de pago
 
-El tipo de servicio de Internet también influye significativamente, especialmente en clientes con fibra óptica.
+Tipo de servicio de Internet
 
-Usuarios que no utilizan soporte técnico muestran una mayor tasa de cancelación.
+Hallazgos adicionales:
 
-Clientes con StreamingTV presentan una probabilidad más alta de cancelar.
+Clientes que no usan soporte técnico tienen mayor riesgo de cancelar.
 
-Estos insights permiten orientar estrategias de retención, como mejorar la calidad del servicio, ajustar la oferta de planes y personalizar promociones para clientes en riesgo.
+Usuarios con StreamingTV muestran mayor probabilidad de churn.
+
+Estos insights permiten a Interconnect optimizar acciones de retención, mejorar su servicio y personalizar promociones.
 
 ▶️ Cómo Ejecutar
 
@@ -112,6 +113,6 @@ Instala las dependencias:
 pip install -r requirements.txt
 
 
-Ejecuta el script o notebook principal:
+Ejecuta el proyecto:
 
 jupyter notebook
