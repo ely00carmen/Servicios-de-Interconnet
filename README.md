@@ -1,16 +1,16 @@
-📡 Interconnect – Predicción de Cancelación de Clientes (Churn)
-📌 Descripción
+📡 Interconnect – Predicción de Cancelación de Clientes (Churn) --
+-- Descripción --
 
 Este proyecto utiliza técnicas de machine learning para ayudar a la empresa de telecomunicaciones Interconnect a predecir qué clientes podrían cancelar su servicio.
-Anticipar el churn permite que la empresa ofrezca promociones personalizadas, mejore su atención y reduzca la pérdida de usuarios valiosos.
+Anticipar el churn permite ofrecer promociones personalizadas, mejorar la atención y evitar pérdidas de clientes.
 
-Interconnect ofrece servicios de:
+Interconnect ofrece:
 
-Telefonía fija (incluyendo líneas múltiples)
+Telefonía fija (incluyendo múltiples líneas)
 
 Internet (DSL o fibra óptica)
 
-Seguridad en línea (antivirus, bloqueador de sitios)
+Seguridad en línea (antivirus y bloqueador de sitios)
 
 Soporte técnico
 
@@ -18,34 +18,33 @@ Backup en la nube
 
 Streaming de TV y películas
 
-El objetivo del proyecto es analizar estos datos y construir un modelo capaz de identificar clientes en riesgo de cancelar.
+-- Objetivos del Proyecto --
 
-🎯 Objetivos del Proyecto
+Predecir la probabilidad de cancelación de cada cliente.
 
-Predecir la probabilidad de cancelación de cada cliente mediante modelos supervisados.
+Comparar múltiples modelos y estrategias de balanceo.
 
-Comparar el desempeño entre múltiples algoritmos y técnicas de balanceo.
+Identificar los factores más influyentes en el churn.
 
-Determinar los factores más influyentes en la cancelación del servicio.
+Apoyar estrategias de retención basadas en datos.
 
-Proveer a Interconnect una herramienta que permita aplicar estrategias de retención basadas en datos.
+-- Descripción de los Datos --
 
-📊 Descripción de los Datos
+Los datos provienen de cuatro archivos:
 
-El proyecto utiliza cuatro archivos principales:
+contract.csv — detalles del contrato (duración, cargos, método de pago, tipo de contrato).
 
-contract.csv — detalles del contrato (duración, método de pago, cargos, tipo de contrato).
+personal.csv — datos personales del cliente.
 
-personal.csv — información personal del cliente.
+internet.csv — tipo de conexión, seguridad, backup, streaming.
 
-internet.csv — servicios relacionados con Internet (tipo de conexión, seguridad, backup, streaming).
+phone.csv — servicios de telefonía fija.
 
-phone.csv — información sobre servicios telefónicos.
+Todos los archivos incluyen customerID como identificador único.
 
-Todos incluyen la columna customerID, usada para unificarlos.
-La información del contrato está vigente desde el 1 de febrero de 2020.
+La información del contrato es válida desde el 1 de febrero de 2020.
 
-⚙️ Tecnologías Utilizadas
+-- Tecnologías Utilizadas --
 
 Python 3
 
@@ -53,23 +52,23 @@ pandas, numpy
 
 seaborn, matplotlib
 
-scikit-learn (Gradient Boosting, métricas, validación, preprocesamiento, balanceo)
+scikit-learn (Gradient Boosting, preprocesamiento, métricas, balanceo)
 
-🧪 Metodología
+-- Metodología --
 
-Exploración de datos (EDA) para comprender patrones y distribución de variables.
+Análisis exploratorio (EDA).
 
-Integración de los cuatro datasets mediante customerID.
+Unificación de datasets usando customerID.
 
 Preprocesamiento:
 
 Codificación de variables categóricas.
 
-Escalado de datos cuando fue necesario.
+Escalado cuando fue necesario.
 
-Balanceo del dataset para mejorar la detección de churn.
+Balanceo de clases para mejorar el recall.
 
-Pruebas con diversos modelos, enfocándonos en:
+Entrenamiento de diferentes modelos:
 
 Árboles de decisión
 
@@ -77,15 +76,15 @@ Random Forest
 
 Gradient Boosting
 
-Selección del mejor modelo según métricas como Accuracy, Recall y F1-Score.
+Evaluación mediante Accuracy, Recall, Precision y F1-score.
 
-Análisis de importancia de características para entender qué factores influyen en la cancelación.
+Análisis de importancia de características.
 
-📈 Resultados
+-- Resultados --
 
-El modelo Gradient Boosting con datos balanceados presentó el mejor desempeño global.
+Gradient Boosting con datos balanceados fue el modelo con mejor desempeño.
 
-Variables más influyentes en la cancelación:
+Factores clave asociados al churn:
 
 Tiempo como cliente (tenure)
 
@@ -93,15 +92,15 @@ Método de pago
 
 Tipo de servicio de Internet
 
-Hallazgos adicionales:
+Hallazgos relevantes:
 
-Clientes que no usan soporte técnico tienen mayor riesgo de cancelar.
+Clientes que no usan soporte técnico cancelan más.
 
-Usuarios con StreamingTV muestran mayor probabilidad de churn.
+Usuarios con StreamingTV muestran más probabilidad de churn.
 
-Estos insights permiten a Interconnect optimizar acciones de retención, mejorar su servicio y personalizar promociones.
+Estos resultados permiten a Interconnect optimizar estrategias de retención y ofrecer promociones más efectivas.
 
-▶️ Cómo Ejecutar
+-- Cómo Ejecutar --
 
 Clona el repositorio:
 
@@ -113,6 +112,6 @@ Instala las dependencias:
 pip install -r requirements.txt
 
 
-Ejecuta el proyecto:
+Ejecuta el notebook o script principal:
 
 jupyter notebook
